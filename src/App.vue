@@ -1,23 +1,35 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div id="q-app" class="row justify-center">
+    <q-layout ref="layout">
+      <Toolbar slot="header" @drawerClick="clickDrawer()"></Toolbar>
+      <SideBar slot="left"></SideBar>
+      <q-transition
+        leave="fadeOut"
+        enter="fadeIn"
+      >
+        <router-view class="layout-view"/>
+      </q-transition>
+   </q-layout>
   </div>
 </template>
 
 <script>
+import { registerGlobalComponents } from './app/GlobalComponentsLoader'
+// eslint-disable-next-line no-unused-vars
+import { NEW_GIG_PATH } from './router'
+
+registerGlobalComponents()
 export default {
-  name: 'App'
+  methods: {
+    clickDrawer() {
+      this.$refs.layout.toggleLeft()
+    }
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  striped {
+    color: yellow
+  }
 </style>

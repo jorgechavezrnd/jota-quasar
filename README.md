@@ -1,30 +1,56 @@
-# jota-quasar
+# JotasJS Basic (base repository: https://github.com/codingstones/codelytv-vue-basic)
 
-> Jota Sample with Quasar
+> Demo project for the CodelyTV Pro video course `Building an app with VueJS and Jest using TDD` you may find in: [Crea una app con VueJS y Jest aplicando TDD](https://pro.codely.tv/library/crea-una-app-con-vuejs-y-jest-aplicando-tdd/65211/path/)
 
-## Build Setup
+_Note that although all the videos and course contents are in Spanish, this repo is only available in English._
+
+## Getting Started!
 
 ``` bash
 # install dependencies
-npm install
+$ yarn install
+or
+$ npm install
+
+# run tests
+$ yarn unit
+or
+$ npm run unit
+
+# run tests in watch mode
+$ yarn unit:watch
+or
+$ npm run unit:watch
+
+# run tests in with coverage
+$ yarn unit:coverage
+or
+$ npm run unit:coverage
 
 # serve with hot reload at localhost:8080
-npm run dev
+$ yarn dev mat
+or
+$ npm run dev mat
+
+
+# 'mat' was the material theme, try iOS with
+$ yarn dev ios
+or
+$ npm run dev ios
 
 # build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+$ quasar build
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Going Mobile!
+
+You may want to wrap the App into a native mobile App. Given you already have Cordova and an Android or iOS SDK installed in your system, run:
+
+
+```
+quasar wrap cordova
+cordova platform add android
+cordova run android
+```
+
+For full details, take a look to the Quasar [guide](http://quasar-framework.org/guide/cordova-wrapper.html).
