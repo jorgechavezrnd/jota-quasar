@@ -5,7 +5,6 @@ export const JotaRouter = (router) => {
   return { navigateToGig, navigateToCreateGig, navigateToAllGigs, getParam }
 
   function navigateToGig(gigId) {
-    console.log('ENTRO POR AQUI CO')
     router.push('gig/' + gigId)
   }
 
