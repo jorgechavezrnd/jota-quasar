@@ -6,7 +6,7 @@ import { stubNow } from '../../../../test/helpers'
 
 describe('date utils', () => {
 
-  beforeEach(() => stubNow('2017-09-02'))
+  beforeEach(() => stubNow('2017-09-02 00:00:00'))
 
   it('Prints today in ISO', () => {
     expect(isoToday()).toBe('2017-09-02')
