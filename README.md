@@ -4,6 +4,14 @@
 
 _Note that although all the videos and course contents are in Spanish, this repo is only available in English._
 
+## 🦎🦎🦎🦎🦎🦎🦎🦎🦎🦎 DISCLAIMER (Jan 2021) 🦎🦎🦎🦎🦎
+
+This project is very old and tests were a bit outdated 😓
+
+We just migrated every test to Vue Testing Library and set `testing-library` as the default branch 🔥
+
+(You can always jump to `jotas` branch if you want to check the old fashioned tests).
+
 ## Getting Started!
 
 ``` bash
