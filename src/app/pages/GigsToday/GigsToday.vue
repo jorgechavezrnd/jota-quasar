@@ -1,6 +1,8 @@
 <template>
   <div class="full-width">
-    <Day :day="todayGigs" :onClick="goTo"/>
+    <LoadSpinner :isLoading="isLoading" />
+    <Day :day="todayGigs" :onClick="goTo" v-if="!isLoading" />
+    <BackToTopButton />
   </div>
 </template>
 
@@ -12,12 +14,20 @@
   export default {
     data () {
       return {
-        todayGigs: {}
+        todayGigs: {},
+        isLoading: false
       }
     },
     async created() {
+      this.isLoading = true
       const days = await retrieveDays()
       this.todayGigs = days[isoToday()]
+      this.isLoading = false
+    },
+    methods: {
+      goTo(gig) {
+        this.jotaRouter.navigateToGig(gig.id)
+      }
     }
   }
 </script>
