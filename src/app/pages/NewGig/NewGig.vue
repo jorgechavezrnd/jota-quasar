@@ -9,14 +9,30 @@
           :validation-messages="validationMessages.title"
           placeholder="Type name of gig"
         ></TextInput>
-        <DateTimeInput
+        <!-- <DateTimeInput
           format="YYYY/MM/DD - hh:mm"
           label="Date and time"
           v-model="dateTime"
           :validation="$v.dateTime"
           :validation-messages="validationMessages.dateTime"
           :value="dateTime"
-        ></DateTimeInput>
+        ></DateTimeInput> -->
+        <DateInput
+          format="YYYY/MM/DD"
+          label="Date"
+          v-model="date"
+          :validation="$v.date"
+          :validation-messages="validationMessages.date"
+          :value="date"
+        ></DateInput>
+        <TimeInput
+          format="hh:mm"
+          label="Time"
+          v-model="time"
+          :validation="$v.time"
+          :validation-messages="validationMessages.time"
+          :value="time"
+        ></TimeInput>
         <br><br>
         <FormButton class="full-width" :onClick="save"
                     :disabled="$v.$invalid" :isLoading="saving">
@@ -28,7 +44,7 @@
 
 <script>
   import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-  import { isFutureDatetime } from './customValidations'
+  import { isFutureDate } from './customValidations'
   import { createGigPayload } from '../../services/jota-payloads'
   import { createGig } from '../../services/jota-api'
 
@@ -41,25 +57,36 @@
         minLength: minLength(5),
         maxLength: maxLength(20)
       },
-      dateTime: {
+      // dateTime: {
+      //   required,
+      //   isFutureDatetime
+      // },
+      date: {
         required,
-        isFutureDatetime
+        isFutureDate
+      },
+      time: {
+        required
       }
     },
     data () {
       return {
         saving: false,
         title: '',
-        dateTime: '',
+        date: '',
+        time: '',
         validationMessages: {
           title: {
             required: 'Name is required.',
             minLength: 'Minimum 5 characters.',
             maxLength: 'Maximum 20 characters.'
           },
-          dateTime: {
-            required: 'Date and time of gig are required.',
-            isFutureDatetime: 'You cannot set a gig in a past date :('
+          date: {
+            required: 'Date of gig is required.',
+            isFutureDate: 'You cannot set a gig in a past date :('
+          },
+          time: {
+            required: 'Time of gig is required.'
           }
         }
       }
@@ -68,7 +95,7 @@
       async save() {
         try {
           this.saving = true
-          await createGig(createGigPayload(this.title, this.dateTime))
+          await createGig(createGigPayload(this.title, this.date))
           this.saving = false
           this.jotaRouter.navigateToAllGigs()
         }

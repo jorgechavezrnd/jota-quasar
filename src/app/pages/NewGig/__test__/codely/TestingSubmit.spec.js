@@ -30,8 +30,10 @@ async function renderNewGig() {
   }
 
   const setGigDate = async (dayText) => {
-    userEvent.click(await screen.findByText(/Date and time/i))
+    userEvent.click(await screen.findByText(/Date/i))
     userEvent.click(await screen.findByText(dayText))
+    userEvent.click(await screen.findByText(/set/i))
+    userEvent.click(await screen.findByText(/Time/i))
     userEvent.click(await screen.findByText(/set/i))
     //Wait for date set and rendered
     await screen.findByText(/\//i)

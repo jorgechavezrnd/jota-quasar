@@ -37,6 +37,8 @@ import GigRow from '@/app/pages/Days/GigRow.vue'
 import Day from '@/app/pages/Days/Day.vue'
 import TextInput from '@/app/shared-components/TextInput.vue'
 import DateTimeInput from '@/app/shared-components/DateTimeInput.vue'
+import DateInput from '@/app/shared-components/DateInput.vue'
+import TimeInput from '@/app/shared-components/TimeInput.vue'
 
 export function registerGlobalComponents(vueInstance = Vue) {
   vueInstance.component('LoadSpinner', LoadSpinner)
@@ -74,5 +76,7 @@ export function registerGlobalComponents(vueInstance = Vue) {
   vueInstance.component('Toolbar', Toolbar)
   vueInstance.component('TextInput', TextInput)
   vueInstance.component('DateTimeInput', DateTimeInput)
+  vueInstance.component('DateInput', DateInput)
+  vueInstance.component('TimeInput', TimeInput)
   vueInstance.component('SideBar', SideBar)
 }
