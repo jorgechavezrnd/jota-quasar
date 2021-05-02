@@ -62,3 +62,7 @@ cordova run android
 ```
 
 For full details, take a look to the Quasar [guide](http://quasar-framework.org/guide/cordova-wrapper.html).
+
+## References
+- Page Objects: https://danilat.com/weblog/2016/02/26/page-objects-con-phpunit-y-webdriver
+- Page Object (Martin fowler): https://martinfowler.com/bliki/PageObject.html
